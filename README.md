@@ -1,12 +1,20 @@
-# React + Vite
+# Career Code
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React**-based web application featuring modern UI and smooth animations. It is built using the following technologies:
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** – Core library for building the UI
+- **React Router** – For client-side routing and navigation
+- **Firebase Authentication** – Secure and reliable user authentication
+- **Tailwind CSS** – Utility-first CSS framework for styling
+- **DaisyUI** – Tailwind CSS component library for faster UI development
+- **Lottie React** – For adding high-quality animations using Lottie files
+- **React Motion** – For smooth, physics-based animations
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User authentication with Firebase (Sign up, Login, Logout)
+- Fully responsive design using TailwindCSS & DaisyUI
+- Smooth animations with React Motion and Lottie
+- Easy navigation using React Router
