@@ -3,6 +3,7 @@ import React, { use } from "react";
 import registerLottie from "../../assets/lotties/register.json";
 import { AuthContext } from "../../contexts/AuthContext";
 import { data } from "react-router";
+import SocialLogIn from "../Shared/SocialLogIn";
 
 const Register = () => {
   const { registerUser } = use(AuthContext);
@@ -55,6 +56,7 @@ const Register = () => {
               </div>
               <button className="btn btn-neutral mt-4">Register</button>
             </form>
+            <SocialLogIn></SocialLogIn>
           </div>
         </div>
       </div>
