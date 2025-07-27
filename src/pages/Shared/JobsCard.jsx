@@ -1,24 +1,56 @@
-import React from "react";
+import { Link } from "react-router";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const JobsCard = ({ job }) => {
-  const { title, location, jobType, category, description, company } = job;
+  const {
+    title,
+    location,
+    jobType,
+    category,
+    requirements,
+    salaryRange,
+    _id,
+    description,
+    company,
+    company_logo,
+  } = job;
   return (
-    <div className="card bg-base-100 shadow-sm">
-      <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
-        />
-      </figure>
+    <div className="card bg-base-100 border-1 border-white">
+      <div className="flex items-center gap-2">
+        <figure>
+          <img src={company_logo} alt="Company Logo" className="w-16" />
+        </figure>
+
+        <div>
+          <h3 className="text-4xl">{company}</h3>
+          <p className="flex items-center gap-2">
+            {" "}
+            <FaMapMarkerAlt /> {location}
+          </p>
+        </div>
+      </div>
       <div className="card-body">
         <h2 className="card-title">
           {title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
+        <p>
+          Salary: {salaryRange.min} - {salaryRange.max} {salaryRange.currency}
+        </p>
         <p>{description}</p>
+
+        <div className="card-actions">
+          {requirements.map((skill, index) => (
+            <div className="badge badge-outline" key={index}>
+              {skill}
+            </div>
+          ))}
+        </div>
+
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <Link to={`/jobs/${_id}`}>
+            <button className="btn btn-primary">Apply Now</button>
+          </Link>
         </div>
       </div>
     </div>
