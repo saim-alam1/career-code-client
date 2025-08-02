@@ -2,7 +2,9 @@
 
 This project is a **React**-based web application featuring modern UI and smooth animations. It is built using the following technologies:
 
-## 📖 Includes Module (58, 59, 59-5)
+## 📖 Includes Module (58, 59, 59.5)
+
+This project includes Modules 58, 59 & 59.5 three of them together. There's three modules implemented in this single project.
 
 ## 🚀 Tech Stack
 
