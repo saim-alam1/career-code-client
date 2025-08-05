@@ -1,4 +1,7 @@
+import Swal from "sweetalert2";
 import UseAuth from "../../hooks/UseAuth";
+import axios from "axios";
+
 const AddJob = () => {
   const { user } = UseAuth();
   console.log(user);
@@ -24,6 +27,27 @@ const AddJob = () => {
     newJobs.responsibilities = newJobs.responsibilities
       .split(",")
       .map((res) => res.trim());
+    // console.log(Object.keys(newJobs).length);
+
+    newJobs.status = "Active";
+
+    // Save Job to the Database
+    axios
+      .post("http://localhost:3000/jobs", newJobs)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your data has been inserted",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
