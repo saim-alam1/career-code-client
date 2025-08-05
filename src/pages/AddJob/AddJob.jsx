@@ -1,10 +1,29 @@
+import UseAuth from "../../hooks/UseAuth";
 const AddJob = () => {
+  const { user } = UseAuth();
+  console.log(user);
+
   const handleAddAJob = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+
+    // Process Salary Range Data
+    const { min, max, currency, ...newJobs } = data;
+    newJobs.salaryRange = { min, max, currency };
+    console.log(newJobs);
+
+    // Process Job Requirements
+    const requirementsString = newJobs.requirements;
+    const requirementsDirty = requirementsString.split(",");
+    const requirementsClean = requirementsDirty.map((req) => req.trim());
+    newJobs.requirements = requirementsClean;
+
+    // Process Job Responsibilities
+    newJobs.responsibilities = newJobs.responsibilities
+      .split(",")
+      .map((res) => res.trim());
   };
 
   return (
@@ -200,9 +219,11 @@ const AddJob = () => {
           <input
             type="email"
             name="hr_email"
+            defaultValue={user.email}
             className="input w-full"
             placeholder="HR Email"
             required
+            readOnly
           />
         </fieldset>
         <input type="submit" value="Add Job" className="btn w-full" />
