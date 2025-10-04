@@ -40,14 +40,15 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      console.log(currentUser);
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
         axios
-          .post("http://localhost:3000/jwt", userData)
+          .post("http://localhost:3000/jwt", userData, {
+            withCredentials: true,
+          })
           .then((res) => {
-            console.log("Token after JWT", res.data);
-            const token = res.data.token;
-            localStorage.setItem("token", token);
+            console.log(res.data);
           })
           .catch((error) => console.log(error));
       }
